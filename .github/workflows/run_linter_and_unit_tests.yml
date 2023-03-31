@@ -27,16 +27,16 @@ jobs:
 
     - name: Build iOS
       run:  |
-          xcodebuild -scheme YAnalytics -sdk iphonesimulator16.0 -destination 'platform=iOS Simulator,name=iPhone 14' build-for-testing
+          xcodebuild -scheme YPersistence -sdk iphonesimulator16.0 -destination 'platform=iOS Simulator,name=iPhone 14' build-for-testing
           
     - name: Run tests iOS
       run: |
-          xcodebuild -scheme YAnalytics -sdk iphonesimulator16.0 -destination 'platform=iOS Simulator,name=iPhone 14' test-without-building
+          xcodebuild -scheme YPersistence -sdk iphonesimulator16.0 -destination 'platform=iOS Simulator,name=iPhone 14' test-without-building
 
     - name: Build tvOS
       run:  |
-          xcodebuild -scheme YAnalytics -sdk appletvsimulator16.0 -destination 'platform=tvOS Simulator,name=Apple TV 4K (2nd generation)' build-for-testing
+          xcodebuild -scheme YPersistence -sdk appletvsimulator16.0 -destination 'platform=tvOS Simulator,name=Apple TV 4K (2nd generation)' build-for-testing
 
     - name: Run tests tvOS
       run: |
-          xcodebuild -scheme YAnalytics -sdk appletvsimulator16.0 -destination 'platform=tvOS Simulator,name=Apple TV 4K (2nd generation)' test-without-building
+          xcodebuild -scheme YPersistence -sdk appletvsimulator16.0 -destination 'platform=tvOS Simulator,name=Apple TV 4K (2nd generation)' test-without-building
