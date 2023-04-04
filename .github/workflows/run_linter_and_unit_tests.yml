@@ -27,8 +27,8 @@ jobs:
 
     - name: Build iOS
       run:  |
-          xcodebuild -scheme YPersistence -sdk iphonesimulator16.0 -destination 'platform=iOS Simulator,name=iPhone 14' build-for-testing
+          xcodebuild -scheme YPersistence -sdk iphonesimulator16.2 -destination 'platform=iOS Simulator,name=iPhone 14' build-for-testing
           
     - name: Run tests iOS
       run: |
-          xcodebuild -scheme YPersistence -sdk iphonesimulator16.0 -destination 'platform=iOS Simulator,name=iPhone 14' test-without-building
+          xcodebuild -scheme YPersistence -sdk iphonesimulator16.2 -destination 'platform=iOS Simulator,name=iPhone 14' test-without-building
