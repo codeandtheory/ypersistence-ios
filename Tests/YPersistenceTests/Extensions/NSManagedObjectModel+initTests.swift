@@ -1,9 +1,9 @@
 //
 //  NSManagedObjectModel+initTests.swift
-//  YPersistenceTestHarnessTests
+//  YPersistence
 //
 //  Created by Karthik K Manoj on 03/06/22.
-//  Copyright © 2022 Y Media Labs. All rights reserved.
+//  Copyright © 2023 Y Media Labs. All rights reserved.
 //
 
 import XCTest
