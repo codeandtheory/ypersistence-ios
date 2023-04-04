@@ -96,7 +96,7 @@ final class PersistenceManagerTests: PersistenceManagerBaseTests {
             expectation1.fulfill()
         }
 
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .utility).async {
             context4 = self.sut.contextForThread()
 
             expectation2.fulfill()
