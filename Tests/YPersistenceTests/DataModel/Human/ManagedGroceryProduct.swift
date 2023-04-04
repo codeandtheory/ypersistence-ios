@@ -1,5 +1,6 @@
 import Foundation
 import YPersistence
+import CoreData
 
 @objc(ManagedGroceryProduct)
 open class ManagedGroceryProduct: _ManagedGroceryProduct {
