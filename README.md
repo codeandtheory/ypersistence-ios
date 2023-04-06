@@ -1,6 +1,11 @@
 # YPersistence
 _A Core Data wrapper that leverages the power of generics to allow you to work with custom model objects_
 
+Licensing
+----------
+Y-Persistence is licensed under the [Apache 2.0 license](LICENSE).
+
+
 Documentation
 ----------
 
@@ -25,7 +30,7 @@ init(
 )
 ```
 
-### YPersistence
+### PersistenceManager
 
 Each persistence manager has two `NSManagedObjectContext`, `mainContext` and `workerContext`.
 
@@ -38,7 +43,7 @@ you can perfrom multiple operations on persistence manager like
 
 #### Fetch
 
-Fetches managed object records from Core Data.Returns an array of managed object records matching the (optional) predicate and optionally sorted.
+Fetches managed object records from Core Data. Returns an array of managed object records matching the (optional) predicate and optionally sorted.
  Throws any error executing the fetch request.
 
 ```swift
@@ -50,7 +55,7 @@ func fetchRecords<T: DataRecord>(
 
 Fetches records from Core Data and convert those to models.
     Returns an unsorted array of model objects matching the uids.
-    Throws any error executing the fetch request
+    Throws any error executing the fetch request.
     
 ```swift
 func fetchModels<T: RecordToModel>(
@@ -60,7 +65,7 @@ func fetchModels<T: RecordToModel>(
 ```
 
 Fetches a single matching record from Core Data and convert it to a model object. Returns the matching model object if found, otherwise nil.
-    Throws any error executing the fetch request
+    Throws any error executing the fetch request.
     
 ```swift
 func fetchModel<T: RecordToModel>(
@@ -80,7 +85,7 @@ func manualDeleteAll(
 )
 ```
 
-Delete entity from Core Data using batch delete. This will not respect rules or relations. Cascade delete of dependent entities will not occur. any error executing the batch delete request or the subsequent save.
+Delete entity from Core Data using batch delete. This will not respect rules or relations. Cascade delete of dependent entities will not occur. Throws any error executing the batch delete request or the subsequent save.
 
 ```swift
 func batchDeleteAll(
@@ -109,7 +114,7 @@ func deleteModel<Record: ModelRepresentable>(entity: Record.Type, model: Record.
 
 #### Clear
 
-List of all entities to be erased upon `clear()`. Default = list of all entities in the model, which would erase all entities in the database. Returns an array of entity names to be cleared.
+List of all entities to be erased upon `clear()`. Default is list of all entities in the model, which would erase all entities in the database. Returns an array of entity names to be cleared.
 
 ```swift
 func entityNamesForClear() -> [String]
@@ -146,9 +151,9 @@ func saveWithOverwrite<Record>(
 
 Similar to `saveWithOverwrite` we have `saveWithoutOverwrite` update the existing records, new records will be inserted, and any duplicates will be removed.
 
-These are some of the operation that you can perfrom on `PersistenceManager`. 
+These are some of the operations that you can perfrom on `PersistenceManager`. 
 
-Some operation can be perfrom on `workerContext` and `mainContext`.
+Some operations can be perfrom on `workerContext` and `mainContext`.
 
 ```swift
 // Asynchronous save method. Performs the save asychronously on the context's queue.
@@ -160,6 +165,17 @@ func saveChanges(_ completion: SaveCompletion? = nil)
 func saveChangesAndWait() 
 ```
 
+If you need to perform some work on main thead you can use the below method. If called from the main thread, the block will be executed immediately and synchronously.
+
+```swift
+// Here work is the block of work to be executed on the main thread.
+func executeOnMain(execute work: @escaping @convention(block) () -> Void)
+```
+
+Dependencies
+----------
+
+Y-Persistence is not dependent on any external framework.
 
 Installation
 ----------
