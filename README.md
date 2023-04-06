@@ -9,6 +9,158 @@ Documentation is automatically generated from source code comments and rendered 
 Usage
 ----------
 
+### YPersistence
+
+You will need to instantiate a `PersistenceManager`. This should be called
+    on application launch. You should then use Dependency Injection to pass to classes that need it.
+
+The standard initializer lets you specify the modelName, mergePolicy, although it provides sensible defaults for mergePolicy and bundle you need to provide a modelName.
+
+```swift
+// Declare an instance of the persistence manager, so that it can be injected where needed.
+init(
+    modelName: String, 
+    mergePolicy: AnyObject = NSErrorMergePolicy, 
+    bundle: Bundle = .main
+)
+```
+
+### YPersistence
+
+Each persistence manager has two `NSManagedObjectContext`, `mainContext` and `workerContext`.
+
+`mainContext` returns the main context, suitable for read-only operations.
+
+`workerContext` a new private queue context, suitable for short-lived add, edit, delete operations or for reading from a background thread.
+
+
+you can perfrom multiple operations on persistence manager like
+
+#### Fetch
+
+Fetches managed object records from Core Data.Returns an array of managed object records matching the (optional) predicate and optionally sorted.
+ Throws any error executing the fetch request.
+
+```swift
+func fetchRecords<T: DataRecord>(
+    predicate: NSPredicate? = nil,
+    sortDescriptors: [NSSortDescriptor]? = nil
+)
+```
+
+Fetches records from Core Data and convert those to models.
+    Returns an unsorted array of model objects matching the uids.
+    Throws any error executing the fetch request
+    
+```swift
+func fetchModels<T: RecordToModel>(
+    entity: T.Type,
+    uids: [T.UidType]? = nil
+)
+```
+
+Fetches a single matching record from Core Data and convert it to a model object. Returns the matching model object if found, otherwise nil.
+    Throws any error executing the fetch request
+    
+```swift
+func fetchModel<T: RecordToModel>(
+    entity: T.Type,
+    uid: T.UidType
+)
+```
+#### Delete
+
+Delete all records for an entity (database table). Best to perform on a background thread. Throws any error saving the context after the deletion.
+
+```swift
+func manualDeleteAll(
+    entityName: String,
+    saveEvery: Int = 500,
+    context: NSManagedObjectContext? = nil
+)
+```
+
+Delete entity from Core Data using batch delete. This will not respect rules or relations. Cascade delete of dependent entities will not occur. any error executing the batch delete request or the subsequent save.
+
+```swift
+func batchDeleteAll(
+    entityName: String,
+    context: NSManagedObjectContext? = nil
+)
+```
+
+Delete records with the matching unique identifier. Throws any error saving the context after the deletion.
+
+```swift
+func delete<Record: DataRecord>(entity: Record.Type, uid: Record.UidType)
+```
+
+Delete records with the matching unique identifiers. Throws any error saving the context after the deletion.
+
+```swift
+func delete<Record: DataRecord>(entity: Record.Type, uids: [Record.UidType])
+```
+
+Delete the specified model. Throws any error saving the context after the deletion.
+
+```swift
+func deleteModel<Record: ModelRepresentable>(entity: Record.Type, model: Record.ModelType)
+```
+
+#### Clear
+
+List of all entities to be erased upon `clear()`. Default = list of all entities in the model, which would erase all entities in the database. Returns an array of entity names to be cleared.
+
+```swift
+func entityNamesForClear() -> [String]
+```
+
+Clear the datbase model. By default this will fetch a list of entity names. Throws any error executing the delete or subsequent save.
+
+```swift
+func clear()
+```
+
+#### Save
+
+Converts an array of models to Core Data records and synchronously saves them. Should be called from a non-blocking thread.
+
+```swift
+func save<Record>(
+    entity: Record.Type,
+    models: [Record.ModelType],
+    shouldOverwrite: Bool,
+    context: NSManagedObjectContext? = nil
+)
+```
+
+Converts an array of models to Core Data records and saves them.
+
+```swift
+func saveWithOverwrite<Record>(
+    entity: Record.Type,
+    models: [Record.ModelType],
+    context: NSManagedObjectContext? = nil
+)
+```
+
+Similar to `saveWithOverwrite` we have `saveWithoutOverwrite` update the existing records, new records will be inserted, and any duplicates will be removed.
+
+These are some of the operation that you can perfrom on `PersistenceManager`. 
+
+Some operation can be perfrom on `workerContext` and `mainContext`.
+
+```swift
+// Asynchronous save method. Performs the save asychronously on the context's queue.
+// Returns nil if successful, otherwise returns an error
+func saveChanges(_ completion: SaveCompletion? = nil)
+
+// Synchronous save method. Performs the save sychronously on the context's queue.
+// Throws any error thrown from `save()` on this context or any parent context.
+func saveChangesAndWait() 
+```
+
+
 Installation
 ----------
 
