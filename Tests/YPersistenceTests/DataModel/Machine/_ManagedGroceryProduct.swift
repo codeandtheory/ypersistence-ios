@@ -54,3 +54,4 @@ open class _ManagedGroceryProduct: NSManagedObject {
 
     // MARK: - Relationships
 }
+// swiftlint: enable type_name

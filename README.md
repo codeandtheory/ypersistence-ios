@@ -172,11 +172,6 @@ If you need to perform some work on main thead you can use the below method. If 
 func executeOnMain(execute work: @escaping @convention(block) () -> Void)
 ```
 
-Dependencies
-----------
-
-Y-Persistence is not dependent on any external framework.
-
 Installation
 ----------
 
