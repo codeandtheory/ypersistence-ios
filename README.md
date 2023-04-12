@@ -44,7 +44,7 @@ final class AppCoordinator {
 
 ### PersistenceManager
 
-Each persistence manager has three methods for vending managed object contexts
+Each persistence manager has three methods for vending managed object contexts:
 
 `mainContext` returns the main context, suitable for read-only operations on the main thread only.
 
