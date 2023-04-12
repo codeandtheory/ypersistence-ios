@@ -1,4 +1,4 @@
-# Y—Persistence
+![Y—Persistence](https://user-images.githubusercontent.com/1037520/231502247-ab3b7245-1066-482e-856f-6e349945de6e.jpeg)
 _A Core Data wrapper that leverages the power of generics to allow you to work with custom model objects_
 
 Licensing
