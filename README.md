@@ -1,5 +1,6 @@
 ![Y—Persistence](https://user-images.githubusercontent.com/1037520/231502247-ab3b7245-1066-482e-856f-6e349945de6e.jpeg)
-_A Core Data wrapper that leverages the power of generics to allow you to work with custom model objects_
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2Fypersistence-ios%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/yml-org/ypersistence-ios) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2Fypersistence-ios%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/yml-org/ypersistence-ios)  
+_A Core Data wrapper that leverages the power of generics to allow you to work with custom model objects._
 
 Licensing
 ----------
