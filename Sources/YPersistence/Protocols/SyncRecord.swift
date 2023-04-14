@@ -11,9 +11,9 @@ import Foundation
 /// Represents status of record data, uploaded and deleted
 public protocol SyncRecord: DataRecord {
     /// Whether record is uploaded or not
-    var isUploaded: Bool {get set}
+    var isUploaded: Bool { get set }
     /// Whether record is deleted or not
-    var wasDeleted: Bool {get set}
+    var wasDeleted: Bool { get set }
 
     /// The name of the attribute (database column) that represents the upload status
     static var isUploadedKey: String { get }
@@ -23,8 +23,15 @@ public protocol SyncRecord: DataRecord {
 
 /// Default implementation
 extension SyncRecord {
-    /// Returns "isUploaded" by default
+    /// Returns "isUploaded"
     public static var isUploadedKey: String { Constants.SyncRecord.isUploaded }
-    /// Returns "wasDeleted" by default
+    /// Returns "wasDeleted"
     public static var wasDeletedKey: String { Constants.SyncRecord.wasDeleted }
+}
+
+enum Constants {
+    enum SyncRecord {
+        static let isUploaded = "isUploaded"
+        static let wasDeleted = "wasDeleted"
+    }
 }

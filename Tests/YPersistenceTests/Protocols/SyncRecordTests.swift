@@ -10,21 +10,6 @@ import XCTest
 @testable import YPersistence
 
 final class SyncRecordTests: XCTestCase {
-    var syncRecordSut: SyncRecordTest!
-    var syncRecordDefaultSut: SyncRecordDefaultTest!
-
-    override func setUp() {
-        super.setUp()
-        syncRecordSut = SyncRecordTest()
-        syncRecordDefaultSut = SyncRecordDefaultTest()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-        syncRecordSut = nil
-        syncRecordDefaultSut = nil
-    }
-
     func test_keysDefaultValues() {
         XCTAssertEqual(SyncRecordDefaultTest.isUploadedKey, Constants.SyncRecord.isUploaded)
         XCTAssertEqual(SyncRecordDefaultTest.wasDeletedKey, Constants.SyncRecord.wasDeleted)
@@ -36,81 +21,45 @@ final class SyncRecordTests: XCTestCase {
     }
 
     func test_statusFlags_deliversCorrectResult() {
-        XCTAssertFalse(syncRecordSut.wasDeleted)
-        XCTAssertFalse(syncRecordSut.isUploaded)
+        let sut = SyncRecordTest()
+        XCTAssertFalse(sut.wasDeleted)
+        XCTAssertFalse(sut.isUploaded)
 
-        syncRecordSut.isUploaded = true
-        syncRecordSut.wasDeleted = true
+        sut.isUploaded = true
+        sut.wasDeleted = true
 
-        XCTAssertTrue(syncRecordSut.wasDeleted)
-        XCTAssertTrue(syncRecordSut.isUploaded)
+        XCTAssertTrue(sut.wasDeleted)
+        XCTAssertTrue(sut.isUploaded)
     }
 }
 
 final class SyncRecordTest: NSObject { /* To conform to NSObjectProtocol*/
-    var isUploadedTest: Bool = false
-    var wasDeletedTest: Bool = false
-}
-
-extension SyncRecordTest: SyncRecord {
-    var isUploaded: Bool {
-        get {
-            isUploadedTest
-        }
-        set(newValue) {
-            isUploadedTest = newValue
-        }
-    }
-
-    var wasDeleted: Bool {
-        get {
-            wasDeletedTest
-        }
-        set(newValue) {
-            wasDeletedTest = newValue
-        }
-    }
+    var isUploaded: Bool = false
+    var wasDeleted: Bool = false
 
     static var isUploadedKey: String { "Uploading" }
     static var wasDeletedKey: String { "Deleted" }
 }
 
-extension SyncRecordTest { /* DataRecord */
-    var uid: String { "456" }
+extension SyncRecordTest: SyncRecord {
+    /* DataRecord */
+    var uid: String { "Rose" }
 
-    static var entityName: String { "Car" }
-
-    static var uidKey: String { "cid" }
+    static var entityName: String {
+        "Black Diamond"
+    }
 }
 
 final class SyncRecordDefaultTest: NSObject { /* To conform to NSObjectProtocol*/
-    var isUploadedTest: Bool = false
-    var wasDeletedTest: Bool = false
+    var isUploaded: Bool = false
+    var wasDeleted: Bool = false
 }
 
 extension SyncRecordDefaultTest: SyncRecord {
-    var isUploaded: Bool {
-        get {
-            isUploadedTest
-        }
-        set(newValue) {
-            isUploadedTest = newValue
-        }
-    }
-
-    var wasDeleted: Bool {
-        get {
-            wasDeletedTest
-        }
-        set(newValue) {
-            wasDeletedTest = newValue
-        }
-    }
-
     /* DataRecord */
-    var uid: String { "456" }
+    var uid: String { "Mango" }
 
-    static var entityName: String { "Car" }
-
-    static var uidKey: String { "cid" }
+    static var entityName: String {
+        "Summer"
+    }
 }
