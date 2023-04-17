@@ -26,6 +26,6 @@ public protocol DataRecord: NSFetchRequestResult, CoreModel {
 
 /// Default implementation
 public extension DataRecord {
-    /// Returns "uid" by default
+    /// Returns "uid"
     static var uidKey: String { "uid" }
 }
