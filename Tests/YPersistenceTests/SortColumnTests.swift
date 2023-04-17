@@ -11,21 +11,21 @@ import XCTest
 
 final class SortColumnTests: XCTestCase {
     func test_defaultAscendingOrder_isTrue() {
-        let sut = makeSut()
+        let sut = makeSUT()
         XCTAssertTrue(sut.ascending)
     }
 
-    func test_descriptorKeyOrder_isCorrect() {
-        let expectedKey = "Mango"
-        let sut = makeSut(key: expectedKey, ascending: false)
-
-        XCTAssertEqual(sut.descriptor.key, expectedKey)
-        XCTAssertFalse(sut.descriptor.ascending)
+    func test_descriptor_deliversCorrectValues() {
+        let key = "Mango"
+        let ascending = Bool.random()
+        let sut = makeSUT(key: key, ascending: ascending)
+        let expected = NSSortDescriptor(key: key, ascending: ascending)
+        XCTAssertEqual(sut.descriptor, expected)
     }
 }
 
 extension SortColumnTests {
-    func makeSut(key: String = "FruitsType", ascending: Bool = true) -> SortColumn {
+    func makeSUT(key: String = "FruitsType", ascending: Bool = true) -> SortColumn {
         SortColumn(key: key, ascending: ascending)
     }
 }

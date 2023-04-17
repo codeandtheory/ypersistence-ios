@@ -8,20 +8,22 @@
 
 import Foundation
 
-/// Sort the columns
+/// Describes an attribute (column) sort
 public struct SortColumn: Equatable {
-    /// Key for performing a comparison
+    /// Sort attribute (column) name
     public let key: String
-    /// Decides order of sorting. Default is `true`.
+    /// Sort order. Default is `true`.
     public let ascending: Bool
-    /// Sort descriptor with a specified key path and ordering
+
+    /// Converts the receiver to a sort descriptor
     public var descriptor: NSSortDescriptor {
         NSSortDescriptor(key: key, ascending: ascending)
     }
-    /// Initializes a SortColumn
+
+    /// Initializes a sort column
     /// - Parameters:
-    ///   - key: key for performing a comparison
-    ///   - ascending: specifies if sorting in ascending order. Default is `true`.
+    ///   - key: sort attribute (column) name
+    ///   - ascending: sort order. Default is `true`.
     public init(key: String, ascending: Bool = true) {
         self.key = key
         self.ascending = ascending
