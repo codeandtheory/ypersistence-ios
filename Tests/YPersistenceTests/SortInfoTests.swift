@@ -12,17 +12,23 @@ import XCTest
 
 final class SortInfoTests: XCTestCase {
     func test_descriptors_deliversCorrectValues() {
-        let key = "Blood Diamond"
+        let keys = ["Blood Diamond", "Mango"]
         let ascending = Bool.random()
-        let sortColumns = [SortColumn(key: key, ascending: ascending)]
-        let sut = makeSUT(sortColumns: sortColumns)
-        let expectedDescriptors = [NSSortDescriptor(key: key, ascending: ascending)]
+        let columnsAttributes = [(keys[0], ascending), (keys[1], !ascending)]
+
+        let sut = makeSUT(attributes: columnsAttributes)
+        let expectedDescriptors = [
+            NSSortDescriptor(key: keys[0], ascending: ascending),
+            NSSortDescriptor(key: keys[1], ascending: !ascending)
+        ]
+
         XCTAssertEqual(sut.descriptors, expectedDescriptors)
     }
 }
 
 extension SortInfoTests {
-    func makeSUT(sortColumns: [SortColumn]) -> SortInfo {
-        SortInfo(columns: sortColumns)
+    func makeSUT(attributes: [(String, Bool)]) -> SortInfo {
+        let columns: [SortColumn] = attributes.map { SortColumn(key: $0.0, ascending: $0.1) }
+        return SortInfo(columns: columns)
     }
 }

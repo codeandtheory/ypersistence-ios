@@ -8,13 +8,19 @@
 
 import Foundation
 
-/// Sort attribute (column) name info collection
+/// Describes a mult-attribute (column) sort
 public struct SortInfo: Equatable {
-    /// Collection of the receivers, attribute (column) name
+    /// Columns
     public let columns: [SortColumn]
 
-    /// Converts the collection of the receivers to a sort descriptor collection
+    /// Converts the receiver to an array of sort descriptors.
     public var descriptors: [NSSortDescriptor] {
-        columns.map { NSSortDescriptor(key: $0.key, ascending: $0.ascending) }
+        columns.map { $0.descriptor }
+    }
+
+    /// Initializes a sort info
+    /// - Parameter columns: columns
+    public init(columns: [SortColumn]) {
+        self.columns = columns
     }
 }
