@@ -22,20 +22,7 @@ extension PersistenceManager {
         predicate: NSPredicate? = nil,
         sortDescriptors: [NSSortDescriptor]? = nil
     ) throws -> [T] {
-        let context = contextForThread()
-        let fetchRequest = NSFetchRequest<T>(entityName: T.entityName)
-
-        if let predicate = predicate {
-            fetchRequest.predicate = predicate
-        }
-
-        if let sortDescriptors = sortDescriptors {
-            fetchRequest.sortDescriptors = sortDescriptors
-        }
-
-        fetchRequest.returnsObjectsAsFaults = false
-
-        return try context.fetch(fetchRequest)
+        try self.fetchRecords(predicate: predicate, sortDescriptors: sortDescriptors, context: nil)
     }
 
     /// Fetches records from Core Data and convert those to models.
