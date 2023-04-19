@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import YPersistence
 
 final class PersistentManagerFetchTests: PersistenceManagerBaseTests {
     func testFetchAll() throws {
@@ -60,5 +61,25 @@ final class PersistentManagerFetchTests: PersistenceManagerBaseTests {
         XCTAssertEqual(allProducts[1], .blackberry)
         XCTAssertEqual(allProducts[2], .durian)
         XCTAssertEqual(allProducts[3], .mango)
+    }
+
+    func test_fetchRecords_deliversCorrectResults() throws {
+        try confirmEmpty()
+        try insertGroceryProducts()
+
+        let allRecords: [ManagedGroceryProduct] = try sut.fetchRecords(context: nil)
+
+        XCTAssertEqual(allRecords.count, 4)
+    }
+
+    func test_fetchRecordsWithContext_deliversCorrectResults() throws {
+        try confirmEmpty()
+        try insertGroceryProducts()
+
+        let allRecords: [ManagedGroceryProduct] = try sut.fetchRecords(
+            context: sut.workerContext
+        )
+
+        XCTAssertEqual(allRecords.count, 4)
     }
 }
