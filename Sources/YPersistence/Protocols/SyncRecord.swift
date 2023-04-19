@@ -14,9 +14,9 @@ public protocol SyncRecord: DataRecord {
     var isUploaded: Bool { get set }
     /// Whether record is deleted or not
     var wasDeleted: Bool { get set }
-    /// Optional sort order
-    var sort: SortInfo? { get }
 
+    /// Optional sort order
+    static var sort: SortInfo? { get }
     /// The name of the attribute (database column) that represents the upload status
     static var isUploadedKey: String { get }
     /// The name of the attribute (database column) that represents the delete status
@@ -26,7 +26,7 @@ public protocol SyncRecord: DataRecord {
 /// Default implementation
 extension SyncRecord {
     /// Returns `nil` (no sort order)
-    public var sort: SortInfo? { nil }
+    public static var sort: SortInfo? { nil }
     /// Returns "isUploaded"
     public static var isUploadedKey: String { Constants.SyncRecord.isUploaded }
     /// Returns "wasDeleted"

@@ -41,6 +41,8 @@ open class PersistenceManagerBaseTests: XCTestCase {
         sut = nil
     }
 
+    // MARK: - Grocery products
+
     func confirmEmpty() throws {
         // Database should start empty
         let initial = try sut.fetchModels(entity: ManagedGroceryProduct.self)
@@ -66,6 +68,33 @@ open class PersistenceManagerBaseTests: XCTestCase {
     func insertGroceryProduct(_ product: GroceryProduct, context: NSManagedObjectContext) {
         context.performAndWait {
             guard let record = ManagedGroceryProduct(managedObjectContext: context) else { return }
+            record.fromModel(product)
+        }
+    }
+
+    // MARK: - Fruits
+    
+    func confirmFruitsEmpty() throws {
+        // Database should start empty
+        let initial = try sut.fetchModels(entity: ManagedFruit.self)
+        XCTAssertEqual(initial.count, 0)
+    }
+
+    func insertFruits() throws {
+        try insertFruits([.grapes, .banana, .mango, .apple])
+    }
+
+    func insertFruits(_ products: [Fruit]) throws {
+        let context = sut.contextForThread()
+        products.forEach {
+            insertFruit($0, context: context)
+        }
+        try context.saveChangesAndWait()
+    }
+
+    func insertFruit(_ product: Fruit, context: NSManagedObjectContext) {
+        context.performAndWait {
+            guard let record = ManagedFruit(managedObjectContext: context) else { return }
             record.fromModel(product)
         }
     }

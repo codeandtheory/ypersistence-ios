@@ -33,32 +33,35 @@ final class SyncRecordTests: XCTestCase {
     }
 
     func test_defaultSort_deliversNil() {
-        let sut = SyncRecordDefaultTest()
         // Default should be nil
-        XCTAssertNil(sut.sort)
+        XCTAssertNil(SyncRecordDefaultTest.sort)
     }
     
     func test_sort_deliversCorrectResult() {
-        let sut = SyncRecordTest()
-
         let keys = ["Convenstional", "Digital"]
-        let ascending = Bool.random()
         let columns = [
-            SortColumn(key: keys[0], ascending: ascending),
-            SortColumn(key: keys[1], ascending: !ascending)
+            SortColumn(key: keys[0], ascending: SyncRecordTest.ascending),
+            SortColumn(key: keys[1], ascending: !SyncRecordTest.ascending)
         ]
 
         let expectedSortInfo = SortInfo(columns: columns)
-        sut.sort = expectedSortInfo
 
-        XCTAssertEqual(sut.sort, expectedSortInfo)
+        XCTAssertEqual(SyncRecordTest.sort, expectedSortInfo)
     }
 }
 
 final class SyncRecordTest: NSObject { /* To conform to NSObjectProtocol*/
+    static let ascending = Bool.random()
+    static var columns: [SortColumn] {
+        [
+            SortColumn(key: "Convenstional", ascending: SyncRecordTest.ascending),
+            SortColumn(key: "Digital", ascending: !SyncRecordTest.ascending)
+        ]
+    }
+    /* SyncRecord */
     var isUploaded: Bool = false
     var wasDeleted: Bool = false
-    var sort: SortInfo?
+    static var sort: SortInfo? = SortInfo(columns: columns)
 
     static var isUploadedKey: String { "Uploading" }
     static var wasDeletedKey: String { "Deleted" }
