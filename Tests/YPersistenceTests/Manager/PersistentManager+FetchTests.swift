@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import YPersistence
 
 final class PersistentManagerFetchTests: PersistenceManagerBaseTests {
     func testFetchAll() throws {
@@ -60,5 +61,36 @@ final class PersistentManagerFetchTests: PersistenceManagerBaseTests {
         XCTAssertEqual(allProducts[1], .blackberry)
         XCTAssertEqual(allProducts[2], .durian)
         XCTAssertEqual(allProducts[3], .mango)
+    }
+
+    func test_fetchRecords_deliversCorrectResults() throws {
+        try confirmEmpty()
+        try insertGroceryProducts()
+
+        let allRecords: [ManagedGroceryProduct] = try sut.fetchRecords(context: nil)
+
+        // We should be able to convert records to products
+        let allProducts = allRecords.compactMap({ $0.toModel() })
+        XCTAssertEqual(allProducts.count, 4)
+
+        // Each of the expected 4 products should be there
+        XCTAssertTrue(allProducts.contains(.banana))
+        XCTAssertTrue(allProducts.contains(.blackberry))
+        XCTAssertTrue(allProducts.contains(.durian))
+        XCTAssertTrue(allProducts.contains(.mango))
+    }
+
+    func test_fetchRecordsWithContext_usesCorrectContext() throws {
+        try confirmEmpty()
+        try insertGroceryProducts()
+
+        let context = sut.workerContext
+
+        let allRecords: [ManagedGroceryProduct] = try sut.fetchRecords(context: context)
+
+        XCTAssertEqual(allRecords.count, 4)
+        for record in allRecords {
+            XCTAssertEqual(record.managedObjectContext, context)
+        }
     }
 }

@@ -11,6 +11,7 @@ import CoreData
 
 extension PersistenceManager {
     /// Fetches managed object records from Core Data.
+    ///
     /// May be safely called from any thread, but the managed objects returned
     /// may only be safely accessed from the current thread.
     /// - Parameters:
@@ -22,7 +23,26 @@ extension PersistenceManager {
         predicate: NSPredicate? = nil,
         sortDescriptors: [NSSortDescriptor]? = nil
     ) throws -> [T] {
-        let context = contextForThread()
+        try self.fetchRecords(predicate: predicate, sortDescriptors: sortDescriptors, context: nil)
+    }
+
+    /// Fetches managed object records from Core Data.
+    ///
+    /// May be safely called from any thread, but the managed objects returned
+    /// may only be safely accessed from the current thread.
+    /// If no context is provided, a worker context will be created.
+    /// - Parameters:
+    ///   - predicate: optional predicate to filter records
+    ///   - sortDescriptors: optional sort to apply to fetched records
+    ///   - context: optional context to fetch data
+    /// - Returns: an array of managed object records matching the (optional) predicate and optionally sorted
+    /// - Throws: any error executing the fetch request
+    internal func fetchRecords<T: DataRecord>(
+        predicate: NSPredicate? = nil,
+        sortDescriptors: [NSSortDescriptor]? = nil,
+        context: NSManagedObjectContext?
+    ) throws -> [T] {
+        let context = context ?? contextForThread()
         let fetchRequest = NSFetchRequest<T>(entityName: T.entityName)
 
         if let predicate = predicate {
@@ -39,6 +59,7 @@ extension PersistenceManager {
     }
 
     /// Fetches records from Core Data and convert those to models.
+    ///
     /// May be safely called from any thread, and the models returned may be safely transferred to any thread.
     /// - Parameters:
     ///   - entity: the Core Data entity to be fetched
@@ -61,11 +82,12 @@ extension PersistenceManager {
     }
 
     /// Fetches a single matching record from Core Data and convert it to a model object.
+    ///
     /// May be safely called from any thread, and the model returned may be safely transferred to any thread.
     /// - Parameters:
     ///   - entity: the type of entity we want to fetch the records
     ///   - uid: the unique identifier of the record to filter for
-    /// - Returns: the matching model object if found, otherwise nil.
+    /// - Returns: the matching model object if found, otherwise `nil`.
     /// - Throws: any error executing the fetch request
     public func fetchModel<T: RecordToModel>(
         entity: T.Type,
