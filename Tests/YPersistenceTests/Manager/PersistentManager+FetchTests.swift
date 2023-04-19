@@ -69,17 +69,28 @@ final class PersistentManagerFetchTests: PersistenceManagerBaseTests {
 
         let allRecords: [ManagedGroceryProduct] = try sut.fetchRecords(context: nil)
 
-        XCTAssertEqual(allRecords.count, 4)
+        // We should be able to convert records to products
+        let allProducts = allRecords.compactMap({ $0.toModel() })
+        XCTAssertEqual(allProducts.count, 4)
+
+        // Each of the expected 4 products should be there
+        XCTAssertTrue(allProducts.contains(.banana))
+        XCTAssertTrue(allProducts.contains(.blackberry))
+        XCTAssertTrue(allProducts.contains(.durian))
+        XCTAssertTrue(allProducts.contains(.mango))
     }
 
-    func test_fetchRecordsWithContext_deliversCorrectResults() throws {
+    func test_fetchRecordsWithContext_usesCorrectContext() throws {
         try confirmEmpty()
         try insertGroceryProducts()
 
-        let allRecords: [ManagedGroceryProduct] = try sut.fetchRecords(
-            context: sut.workerContext
-        )
+        let context = sut.workerContext
+
+        let allRecords: [ManagedGroceryProduct] = try sut.fetchRecords(context: context)
 
         XCTAssertEqual(allRecords.count, 4)
+        for record in allRecords {
+            XCTAssertEqual(record.managedObjectContext, context)
+        }
     }
 }
