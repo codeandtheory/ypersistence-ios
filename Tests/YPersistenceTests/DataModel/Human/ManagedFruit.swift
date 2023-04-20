@@ -44,7 +44,7 @@ extension ManagedFruit: ModelRepresentable {
 extension ManagedFruit: RecordToModel {
     /// Convert the Core Data record into a model object
     public func toModel() -> Fruit {
-        Fruit(uid: id, name: name, isUploaded: isUploaded, wasDeleted: wasDeleted)
+        Fruit(uid: id, name: name)
     }
 }
 
@@ -54,7 +54,5 @@ extension ManagedFruit: RecordFromModel {
     public func fromModel(_ model: Fruit) {
         self.id = model.uid
         self.name = model.name
-        self.isUploaded = model.isUploaded
-        self.wasDeleted = model.wasDeleted
     }
 }

@@ -14,7 +14,7 @@ final class PersistenceManagerSyncTests: PersistenceManagerBaseTests {
         try insertFruits()
 
         /// Condition -> isUploaded == false
-        /// true for apple and banana
+        /// true for Apple and Banana
         let allProducts: [ManagedFruit] = try sut.fetchRecordsToUpload()
         XCTAssertEqual(allProducts.count, 2)
 
@@ -24,7 +24,7 @@ final class PersistenceManagerSyncTests: PersistenceManagerBaseTests {
     }
 
     /// Condition -> isUploaded == false && wasDeletedKey == true
-    /// true for grapes only
+    /// true for Banana only
     func test_fetchRecordsToDelete () throws {
         try confirmFruitsEmpty()
         try insertFruits()
@@ -39,7 +39,7 @@ final class PersistenceManagerSyncTests: PersistenceManagerBaseTests {
     }
 
     /// Condition -> isUploaded == false && wasDeletedKey == false
-    /// true for apple only
+    /// true for Apple only
     func test_fetchRecordsToUpdate() throws {
         try confirmFruitsEmpty()
         try insertFruits()

@@ -96,6 +96,16 @@ open class PersistenceManagerBaseTests: XCTestCase {
         context.performAndWait {
             guard let record = ManagedFruit(managedObjectContext: context) else { return }
             record.fromModel(product)
+            if product.name == "Apple" || product.name == "Banana" {
+                record.isUploaded = false
+            } else {
+                record.isUploaded = true
+            }
+            if product.name == "Grapes" || product.name == "Apple"{
+                record.wasDeleted = false
+            } else {
+                record.wasDeleted = true
+            }
         }
     }
 
