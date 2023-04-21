@@ -1,5 +1,5 @@
 //
-//  PersistentManager+DeleteTests.swift
+//  PersistenceManager+DeleteTests.swift
 //  YPersistence
 //
 //  Created by Mark Pospesel on 11/16/21.
@@ -10,7 +10,7 @@ import XCTest
 import CoreData
 @testable import YPersistence
 
-final class PersistentManagerDeleteTests: PersistenceManagerBaseTests {
+final class PersistenceManagerDeleteTests: PersistenceManagerBaseTests {
     func testDeleteByUids() throws {
         try confirmEmpty()
 

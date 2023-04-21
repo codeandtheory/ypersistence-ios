@@ -1,5 +1,5 @@
 //
-//  PersistentManager+Fetch.swift
+//  PersistenceManager+Fetch.swift
 //  YPersistence
 //
 //  Created by Mark Pospesel on 11/11/21.

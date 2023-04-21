@@ -1,5 +1,5 @@
 //
-//  PersistentManager+SaveTests.swift
+//  PersistenceManager+SaveTests.swift
 //  YPersistence
 //
 //  Created by Mark Pospesel on 11/11/21.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class PersistentManagerSaveTests: PersistenceManagerBaseTests {
+final class PersistenceManagerSaveTests: PersistenceManagerBaseTests {
     func testSaveWithoutOverwrite() throws {
         try confirmEmpty()
         try insertGroceryProducts()

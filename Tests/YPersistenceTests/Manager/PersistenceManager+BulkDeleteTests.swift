@@ -1,5 +1,5 @@
 //
-//  PersistentManager+BulkDeleteTests.swift
+//  PersistenceManager+BulkDeleteTests.swift
 //  YPersistence
 //
 //  Created by Mark Pospesel on 11/16/21.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class PersistentManagerBulkDeleteTests: PersistenceManagerBaseTests {
+final class PersistenceManagerBulkDeleteTests: PersistenceManagerBaseTests {
     func testBatchDeleteAll() throws {
         try confirmEmpty()
 

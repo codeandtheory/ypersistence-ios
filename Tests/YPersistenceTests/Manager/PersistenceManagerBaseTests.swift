@@ -41,6 +41,8 @@ open class PersistenceManagerBaseTests: XCTestCase {
         sut = nil
     }
 
+    // MARK: - Grocery products
+
     func confirmEmpty() throws {
         // Database should start empty
         let initial = try sut.fetchModels(entity: ManagedGroceryProduct.self)
@@ -68,6 +70,59 @@ open class PersistenceManagerBaseTests: XCTestCase {
             guard let record = ManagedGroceryProduct(managedObjectContext: context) else { return }
             record.fromModel(product)
         }
+    }
+
+    // MARK: - Fruits
+    
+    func confirmFruitsEmpty() throws {
+        // Database should start empty
+        let initial = try sut.fetchModels(entity: ManagedFruit.self)
+        XCTAssertEqual(initial.count, 0)
+    }
+
+    func insertFruits() throws {
+        try insertFruits([.grapes, .banana, .mango, .apple])
+    }
+
+    func insertFruits(_ fruits: [Fruit]) throws {
+        let context = sut.contextForThread()
+        fruits.forEach {
+            insertFruit($0, context: context)
+        }
+        try context.saveChangesAndWait()
+    }
+
+    func insertFruit(_ fruit: Fruit, context: NSManagedObjectContext) {
+        context.performAndWait {
+            guard let record = ManagedFruit(managedObjectContext: context) else { return }
+            record.fromModel(fruit)
+        }
+    }
+
+    func deleteFruit(_ fruit: Fruit) throws {
+        let context = sut.workerContext
+        let predicate = NSPredicate(format: "\(ManagedFruit.uidKey) == %@", fruit.uid)
+        context.performAndWait {
+            guard let record: ManagedFruit = try? sut.fetchRecords(
+                predicate: predicate,
+                context: context
+            ).first else { return }
+            record.wasDeleted = true
+        }
+        try context.saveChangesAndWait()
+    }
+
+    func uploadFruit(_ fruit: Fruit) throws {
+        let context = sut.workerContext
+        let predicate = NSPredicate(format: "\(ManagedFruit.uidKey) == %@", fruit.uid)
+        context.performAndWait {
+            guard let record: ManagedFruit = try? sut.fetchRecords(
+                predicate: predicate,
+                context: context
+            ).first else { return }
+            record.isUploaded = true
+        }
+        try context.saveChangesAndWait()
     }
 
     func makePersistenceManager(modelName: String, mergePolicy: AnyObject = NSErrorMergePolicy) -> PersistenceManager {
