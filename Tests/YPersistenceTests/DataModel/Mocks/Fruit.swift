@@ -20,22 +20,22 @@ public struct Fruit: CoreModel, Equatable {
 }
 
 extension Fruit {
-    static var mango = Fruit(
+    static let mango = Fruit(
         uid: "1",
         name: "Mango"
     )
 
-    static var banana = Fruit(
+    static let banana = Fruit(
         uid: "2",
         name: "Banana"
     )
 
-    static var apple = Fruit(
+    static let apple = Fruit(
         uid: "3",
         name: "Apple"
     )
 
-    static var grapes = Fruit(
+    static let grapes = Fruit(
         uid: "4",
         name: "Grapes"
     )

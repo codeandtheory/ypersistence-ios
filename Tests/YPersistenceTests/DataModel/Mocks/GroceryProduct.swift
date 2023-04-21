@@ -24,28 +24,28 @@ public struct GroceryProduct: CoreModel, Equatable {
 }
 
 extension GroceryProduct {
-    static var durian = GroceryProduct(
+    static let durian = GroceryProduct(
         uid: "1",
         name: "Durian",
         points: 600,
         description: "A fruit with a distinctive scent."
     )
 
-    static var banana = GroceryProduct(
+    static let banana = GroceryProduct(
         uid: "2",
         name: "Banana",
         points: 100,
         description: "A fruit with a yellow peel."
     )
 
-    static var mango = GroceryProduct(
+    static let mango = GroceryProduct(
         uid: "3",
         name: "Mango",
         points: 200,
         description: "Deliciously refreshing."
     )
 
-    static var blackberry = GroceryProduct(
+    static let blackberry = GroceryProduct(
         uid: "4",
         name: "Blackberry",
         points: 750,

@@ -84,29 +84,45 @@ open class PersistenceManagerBaseTests: XCTestCase {
         try insertFruits([.grapes, .banana, .mango, .apple])
     }
 
-    func insertFruits(_ products: [Fruit]) throws {
+    func insertFruits(_ fruits: [Fruit]) throws {
         let context = sut.contextForThread()
-        products.forEach {
+        fruits.forEach {
             insertFruit($0, context: context)
         }
         try context.saveChangesAndWait()
     }
 
-    func insertFruit(_ product: Fruit, context: NSManagedObjectContext) {
+    func insertFruit(_ fruit: Fruit, context: NSManagedObjectContext) {
         context.performAndWait {
             guard let record = ManagedFruit(managedObjectContext: context) else { return }
-            record.fromModel(product)
-            if product.name == "Apple" || product.name == "Banana" {
-                record.isUploaded = false
-            } else {
-                record.isUploaded = true
-            }
-            if product.name == "Grapes" || product.name == "Apple"{
-                record.wasDeleted = false
-            } else {
-                record.wasDeleted = true
-            }
+            record.fromModel(fruit)
         }
+    }
+
+    func deleteFruit(_ fruit: Fruit) throws {
+        let context = sut.workerContext
+        let predicate = NSPredicate(format: "\(ManagedFruit.uidKey) == %@", fruit.uid)
+        context.performAndWait {
+            guard let record: ManagedFruit = try? sut.fetchRecords(
+                predicate: predicate,
+                context: context
+            ).first else { return }
+            record.wasDeleted = true
+        }
+        try context.saveChangesAndWait()
+    }
+
+    func uploadFruit(_ fruit: Fruit) throws {
+        let context = sut.workerContext
+        let predicate = NSPredicate(format: "\(ManagedFruit.uidKey) == %@", fruit.uid)
+        context.performAndWait {
+            guard let record: ManagedFruit = try? sut.fetchRecords(
+                predicate: predicate,
+                context: context
+            ).first else { return }
+            record.isUploaded = true
+        }
+        try context.saveChangesAndWait()
     }
 
     func makePersistenceManager(modelName: String, mergePolicy: AnyObject = NSErrorMergePolicy) -> PersistenceManager {

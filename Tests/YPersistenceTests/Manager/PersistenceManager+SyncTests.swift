@@ -9,80 +9,87 @@
 import XCTest
 
 final class PersistenceManagerSyncTests: PersistenceManagerBaseTests {
-    func test_fetchRecordsToUpload() throws {
+    func test_defaultRecords_areMarkedForUpload() throws {
         try confirmFruitsEmpty()
         try insertFruits()
 
-        /// Condition -> isUploaded == false
-        /// true for Apple and Banana
+        // Condition -> isUploaded == false
         let allProducts: [ManagedFruit] = try sut.fetchRecordsToUpload()
-        XCTAssertEqual(allProducts.count, 2)
+        XCTAssertEqual(allProducts.count, 4)
 
         for product in allProducts {
             XCTAssertFalse(product.isUploaded)
         }
     }
 
-    /// Condition -> isUploaded == false && wasDeletedKey == true
-    /// true for Banana only
-    func test_fetchRecordsToDelete () throws {
+    func test_defaultRecords_areMarkedForUpdate() throws {
         try confirmFruitsEmpty()
         try insertFruits()
 
-        let allProducts: [ManagedFruit] = try sut.fetchRecordsToDelete()
-        XCTAssertEqual(allProducts.count, 1)
-
-        for product in allProducts {
-            XCTAssertFalse(product.isUploaded)
-            XCTAssertTrue(product.wasDeleted)
-        }
-    }
-
-    /// Condition -> isUploaded == false && wasDeletedKey == false
-    /// true for Apple only
-    func test_fetchRecordsToUpdate() throws {
-        try confirmFruitsEmpty()
-        try insertFruits()
-
+        // Condition -> isUploaded == false && wasDeleted == false
         let allProducts: [ManagedFruit] = try sut.fetchRecordsToUpdate()
-        XCTAssertEqual(allProducts.count, 1)
+        XCTAssertEqual(allProducts.count, 4)
+
+        for product in allProducts {
+            XCTAssertFalse(product.isUploaded)
+        }
+    }
+
+    func test_defaultRecords_areNotMarkedForDeletion() throws {
+        try confirmFruitsEmpty()
+        try insertFruits()
+
+        // Condition -> isUploaded == false && wasDeleted == true
+        let allProducts: [ManagedFruit] = try sut.fetchRecordsToDelete()
+        XCTAssertEqual(allProducts.count, 0)
+    }
+
+    func test_fetchRecordsToUpload_deliversMarkedForUploadRecords() throws {
+        try confirmFruitsEmpty()
+        try insertFruits()
+        try uploadFruit(.apple)
+        try deleteFruit(.banana)
+
+        // Condition -> isUploaded == false
+        // true for .apple
+        let allProducts: [ManagedFruit] = try sut.fetchRecordsToUpload()
+        XCTAssertEqual(allProducts.count, 3)
+
+        for product in allProducts {
+            XCTAssertFalse(product.isUploaded)
+        }
+    }
+
+    func test_fetchRecordsToUpdate_deliversMarkedForUpdateRecords() throws {
+        try confirmFruitsEmpty()
+        try insertFruits()
+        try uploadFruit(.apple)
+        try deleteFruit(.banana)
+
+        // Condition -> isUploaded == false && wasDeleted == false
+        // true for .apple and .banana
+        let allProducts: [ManagedFruit] = try sut.fetchRecordsToUpdate()
+        XCTAssertEqual(allProducts.count, 2)
         for product in allProducts {
             XCTAssertFalse(product.isUploaded)
             XCTAssertFalse(product.wasDeleted)
         }
     }
 
-    func test_fetchRecordsToUploadWithContext() throws {
+    func test_fetchRecordsToDelete_deliversMarkedForDeleteRecords() throws {
         try confirmFruitsEmpty()
         try insertFruits()
+        try uploadFruit(.apple)
+        try deleteFruit(.banana)
 
-        let context = sut.contextForThread()
-        let allProducts: [ManagedFruit] = try sut.fetchRecordsToUpload(context: context)
+        // Condition -> isUploaded == false && wasDeleted == true
+        // true for .banana
+        let allProducts: [ManagedFruit] = try sut.fetchRecordsToDelete()
+        XCTAssertEqual(allProducts.count, 1)
 
         for product in allProducts {
-            XCTAssertEqual(product.managedObjectContext, context)
-        }
-    }
-
-    func test_fetchRecordsToDeleteWithContext() throws {
-        try confirmFruitsEmpty()
-        try insertFruits()
-
-        let context = sut.contextForThread()
-        let allProducts: [ManagedFruit] = try sut.fetchRecordsToDelete(context: context)
-        for product in allProducts {
-            XCTAssertEqual(product.managedObjectContext, context)
-        }
-    }
-
-    func test_fetchRecordsToUpdateWithContext() throws {
-        try confirmFruitsEmpty()
-        try insertFruits()
-
-        let context = sut.contextForThread()
-        let allProducts: [ManagedFruit] = try sut.fetchRecordsToUpdate(context: context)
-        for product in allProducts {
-            XCTAssertEqual(product.managedObjectContext, context)
+            XCTAssertFalse(product.isUploaded)
+            XCTAssertTrue(product.wasDeleted)
         }
     }
 }

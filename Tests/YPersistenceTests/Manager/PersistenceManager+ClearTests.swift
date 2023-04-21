@@ -1,5 +1,5 @@
 //
-//  PersistentManager+ClearTests.swift
+//  PersistenceManager+ClearTests.swift
 //  YPersistence
 //
 //  Created by Mark Pospesel on 11/16/21.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class PersistentManagerClearTests: PersistenceManagerBaseTests {
+final class PersistenceManagerClearTests: PersistenceManagerBaseTests {
     func testClear() throws {
         try confirmEmpty()
 

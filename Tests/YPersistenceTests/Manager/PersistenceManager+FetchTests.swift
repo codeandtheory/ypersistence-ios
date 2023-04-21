@@ -1,5 +1,5 @@
 //
-//  PersistentManager+FetchTests.swift
+//  PersistenceManager+FetchTests.swift
 //  YPersistence
 //
 //  Created by Mark Pospesel on 11/11/21.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import YPersistence
 
-final class PersistentManagerFetchTests: PersistenceManagerBaseTests {
+final class PersistenceManagerFetchTests: PersistenceManagerBaseTests {
     func testFetchAll() throws {
         try confirmEmpty()
         try insertGroceryProducts()
