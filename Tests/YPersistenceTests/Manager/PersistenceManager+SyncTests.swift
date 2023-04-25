@@ -92,4 +92,46 @@ final class PersistenceManagerSyncTests: PersistenceManagerBaseTests {
             XCTAssertTrue(product.wasDeleted)
         }
     }
+
+    func test_markRecordAsUploaded_deliversMarkedForUploadedRecords() throws {
+        try confirmFruitsEmpty()
+        try insertFruits()
+
+        var allProducts: [ManagedFruit] = try sut.fetchRecordsToUpload()
+        XCTAssertEqual(allProducts.count, 4)
+
+        let uids = ["1", "2"]
+        try sut.markRecordsAsUploaded(entity: ManagedFruit.self, uids: uids)
+
+        allProducts = try sut.fetchRecordsToUpload()
+        XCTAssertEqual(allProducts.count, 2) // with uid 1 and 2
+    }
+    
+    func test_markRecordAsDelete_deliversMarkedForDeleteRecords() throws {
+        try confirmFruitsEmpty()
+        try insertFruits()
+
+        var allProducts: [ManagedFruit] = try sut.fetchRecordsToDelete()
+        XCTAssertEqual(allProducts.count, 0)
+
+        let uids = ["1", "2", "x"]
+        try sut.markRecordsAsDeleted(entity: ManagedFruit.self, uids: uids)
+
+        allProducts = try sut.fetchRecordsToDelete()
+        XCTAssertEqual(allProducts.count, 2)
+    }
+
+    func test_markRecordsDelete_deliversAllMarkedForDeleteRecords() throws {
+        try confirmFruitsEmpty()
+        try insertFruits()
+
+        var allProducts: [ManagedFruit] = try sut.fetchRecordsToDelete()
+        // No fruits are marked for deletion
+        XCTAssertEqual(allProducts.count, 0)
+
+        try sut.markAllRecordsAsDeleted(entity: ManagedFruit.self)
+
+        allProducts = try sut.fetchRecordsToDelete()
+        XCTAssertEqual(allProducts.count, 4)
+    }
 }
