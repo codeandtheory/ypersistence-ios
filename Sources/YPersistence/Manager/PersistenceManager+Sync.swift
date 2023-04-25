@@ -15,7 +15,7 @@ extension PersistenceManager {
     /// May be safely called from any thread, but the managed objects returned
     /// may only be safely accessed from the current thread.
     /// If no context is provided, a worker context will be created.
-    /// - Parameter context: Optional managed context to use. Default is `nil`.
+    /// - Parameter context: optional managed context to use. Default is `nil`.
     /// - Returns: an array of managed object records not uploaded
     /// - Throws: any error executing the fetch request
     public func fetchRecordsToUpload<T: SyncRecord>(
@@ -34,7 +34,7 @@ extension PersistenceManager {
     /// May be safely called from any thread, but the managed objects returned
     /// may only be safely accessed from the current thread.
     /// If no context is provided, a worker context will be created.
-    /// - Parameter context: Optional managed context to use. Default is `nil`.
+    /// - Parameter context: optional managed context to use. Default is `nil`.
     /// - Returns: an array of managed object records to update
     /// - Throws: any error executing the fetch request
     public func fetchRecordsToUpdate<T: SyncRecord>(
@@ -55,6 +55,7 @@ extension PersistenceManager {
     /// May be safely called from any thread, but the managed objects returned
     /// may only be safely accessed from the current thread.
     /// If no context is provided, a worker context will be created.
+    /// - Parameter context: optional managed context to use. Default is `nil`.
     /// - Returns: an array of managed object records to delete.
     /// - Throws: any error executing the fetch request
     public func fetchRecordsToDelete<T: SyncRecord>(
@@ -70,24 +71,23 @@ extension PersistenceManager {
         )
     }
 
-    /// Update records that have been marked for upload since the last sync.
+    /// Mark records as uploaded. Do this after they have been been successfully uploaded to remote.
     ///
-    /// May be safely called from any thread
-    /// may only be safely accessed from the current thread.
+    /// May be safely called from any thread.
     /// If no context is provided, a worker context will be created.
     /// - Parameters:
-    ///   - enity: the Core Data entity to be fetched
+    ///   - entity: the Core Data entity to be fetched
     ///   - uids: array of uids to update
-    ///   - context: Optional managed context to use. Default is `nil`.
+    ///   - context: optional managed context to use. Default is `nil`.
     /// - Throws: any error executing the fetch or save request
     public func markRecordsAsUploaded<T: SyncRecord>(
-        enity: T.Type,
+        entity: T.Type,
         uids: [T.UidType],
         context: NSManagedObjectContext? = nil
     ) throws {
         let context = context ?? workerContext
 
-        let predicate = NSPredicate(format: "\(enity.uidKey) in %@ && \(T.isUploadedKey) == false", uids)
+        let predicate = NSPredicate(format: "\(T.isUploadedKey) == false && \(entity.uidKey) in %@", uids)
         
         let records: [T] = try fetchRecords(
             predicate: predicate,
@@ -101,24 +101,25 @@ extension PersistenceManager {
         try context.saveChangesAndWait()
     }
 
-    /// Update records that have been marked for deletion since the last sync.
+    /// Mark selected records as being deleted locally.
+    /// Any local fetches should exclude records where `wasDeleted == true`.
+    /// Once these records have been deleted from remote, you can safely delete them locally.
     ///
-    /// May be safely called from any thread
-    /// may only be safely accessed from the current thread.
+    /// May be safely called from any thread.
     /// If no context is provided, a worker context will be created.
     /// - Parameters:
-    ///   - enity: the Core Data entity to be fetched
+    ///   - entity: the Core Data entity to be fetched
     ///   - uids: array of uids to update
-    ///   - context: Optional managed context to use. Default is `nil`.
+    ///   - context: optional managed context to use. Default is `nil`.
     /// - Throws: any error executing the fetch or save request
     public func markRecordsAsDeleted<T: SyncRecord>(
-        enity: T.Type,
+        entity: T.Type,
         uids: [T.UidType],
         context: NSManagedObjectContext? = nil
     ) throws {
         let context = context ?? workerContext
 
-        let predicate = NSPredicate(format: "\(enity.uidKey) in %@ && \(T.wasDeletedKey) == false", uids)
+        let predicate = NSPredicate(format: " \(T.wasDeletedKey) == false && \(entity.uidKey) in %@", uids)
 
         let records: [T] = try fetchRecords(
             predicate: predicate,
@@ -133,21 +134,21 @@ extension PersistenceManager {
         try context.saveChangesAndWait()
     }
 
-    /// Update all records as deleted
+    /// Mark all records as being deleted locally. Any local fetches should exclude records where `wasDeleted == true`.
+    /// Once these records have been deleted from remote, you can safely delete them locally.
     ///
-    /// May be safely called from any thread
-    /// may only be safely accessed from the current thread.
+    /// May be safely called from any thread.
     /// If no context is provided, a worker context will be created.
     /// - Parameters:
-    ///   - enity: the Core Data entity to be fetched
-    ///   - context: Optional managed context to use. Default is `nil`.
+    ///   - entity: the Core Data entity to be fetched
+    ///   - context: optional managed context to use. Default is `nil`.
     /// - Throws: any error executing the fetch or save request
     public func markAllRecordsAsDeleted<T: SyncRecord>(
-        enity: T.Type,
+        entity: T.Type,
         context: NSManagedObjectContext? = nil
     ) throws {
         let context = context ?? workerContext
-        let predicate = NSPredicate(format: "\(enity.wasDeletedKey) == false")
+        let predicate = NSPredicate(format: "\(entity.wasDeletedKey) == false")
 
         let records: [T] = try fetchRecords(
             predicate: predicate,
