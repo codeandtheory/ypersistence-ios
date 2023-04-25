@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PersistenceManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/PersistenceManager" class="dashAnchor"></a>
+
+    <a title="PersistenceManager Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          YPersistence Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">YPersistence Reference</a>
+      <img class="carat" src="../img/carat.png" alt=""/>
+      PersistenceManager Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PersistenceManager.html">PersistenceManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/DispatchQueue.html">DispatchQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/NSManagedObjectContext.html">NSManagedObjectContext</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/CoreModel.html">CoreModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/DataRecord.html">DataRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ModelRepresentable.html">ModelRepresentable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RecordFromModel.html">RecordFromModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/RecordToModel.html">RecordToModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/SyncRecord.html">SyncRecord</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SortColumn.html">SortColumn</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SortInfo.html">SortInfo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:12YPersistence14SaveCompletiona">SaveCompletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:12YPersistence16UniqueIdentifiera">UniqueIdentifier</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>PersistenceManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">PersistenceManager</span></code></pre>
+
+                </div>
+              </div>
+            <p>Manages access to a Core Data stack</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC9containerSo21NSPersistentContainerCvp"></a>
+                    <a name="//apple_ref/swift/Property/container" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC9containerSo21NSPersistentContainerCvp">container</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Container to encapsulates the Core Data stack.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">container</span><span class="p">:</span> <span class="kt">NSPersistentContainer</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC9modelName11mergePolicy6bundleACSS_yXlSo8NSBundleCtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(modelName:mergePolicy:bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC9modelName11mergePolicy6bundleACSS_yXlSo8NSBundleCtcfc">init(modelName:<wbr>mergePolicy:<wbr>bundle:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a Persistence Manager. This should be called
+on application launch (but please not as a singleton) and
+then passed to classes that need it via Dependency Injection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">modelName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">mergePolicy</span><span class="p">:</span> <span class="kt">AnyObject</span> <span class="o">=</span> <span class="kt">NSErrorMergePolicy</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">Bundle</span> <span class="o">=</span> <span class="o">.</span><span class="n">main</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>modelName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Core Data model name</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mergePolicy</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The merge policy to use for each context. Default = <code>NSErrorMergePolicy</code>.
+It is the only policy that requires action to correct any potential conflicts.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC9modelNameSSvp"></a>
+                    <a name="//apple_ref/swift/Property/modelName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC9modelNameSSvp">modelName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Core Data model name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">modelName</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC11mergePolicyyXlvp"></a>
+                    <a name="//apple_ref/swift/Property/mergePolicy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC11mergePolicyyXlvp">mergePolicy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The merge policy to apply to all contexts</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">mergePolicy</span><span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC11mainContextSo015NSManagedObjectE0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/mainContext" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC11mainContextSo015NSManagedObjectE0Cvp">mainContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the main context, suitable for read-only operations.
+If you want to add, edit, delete records you should use a worker context.
+This method must be called from the main thread.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">mainContext</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/workerContext" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a new private queue context, suitable for short-lived add, edit, delete operations
+or for reading from a background thread.
+This method may be called from any thread.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">workerContext</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC16contextForThreadSo22NSManagedObjectContextCyF"></a>
+                    <a name="//apple_ref/swift/Method/contextForThread()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC16contextForThreadSo22NSManagedObjectContextCyF">contextForThread()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a long-lived context appropriate for fetching results appropriate for the current thread.
+This method is thread-safe. When called from a background thread, it will use a cached context if available.
+Otherwise it will create a worker context and cache it.
+Important: if you need a short-lived context to modify some data, just use <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a></code> instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">contextForThread</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">NSManagedObjectContext</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a context suitable for use on the calling thread to fetch results</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC4load10completionyySbc_tF"></a>
+                    <a name="//apple_ref/swift/Method/load(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC4load10completionyySbc_tF">load(completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Asynchronously load the persistence store.
+The PersistanceManager is not ready to be used until and unless this method is called
+and returns <code>true</code> in the completion handler.
+This method will fail if called more than once.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>returns <code>true</code> if the store was successfully loaded, otherwise <code>false</code>.
+Callback occurs on the main thread.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC7destroy10completionyySbc_tKF"></a>
+                    <a name="//apple_ref/swift/Method/destroy(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC7destroy10completionyySbc_tKF">destroy(completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete all stores from Core Data</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">destroy</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>returns <code>true</code> if the store was successfully loaded, otherwise <code>false</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC14batchDeleteAll6entity7contextyxm_So22NSManagedObjectContextCSgtKAA10DataRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/batchDeleteAll(entity:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC14batchDeleteAll6entity7contextyxm_So22NSManagedObjectContextCSgtKAA10DataRecordRzlF">batchDeleteAll(entity:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete entity from Core Data using batch delete.
+Warning: see all the caveats about NSBatchDeleteRequest in the Apple documentation:
+<a href="https://developer.apple.com/documentation/coredata/nsbatchdeleterequest">https://developer.apple.com/documentation/coredata/nsbatchdeleterequest</a>
+This will not respect rules or relations. Cascade delete of dependent entities will not occur.
+This only works on Core Data stores backed by SQLite (the default).</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the batch delete request or the subsequent save.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="n">batchDeleteAll</span><span class="o">&lt;</span><span class="kt">Record</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DataRecord.html">DataRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the entity to be wiped clean</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional managed context to use. Default = nil.
+If nil a short-lived <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a></code> will be created.
+Either way <code>saveChangesAndWait()</code> will be called on the context.
+Typically you would just pass <code>nil</code> unless you specifically need to control which
+context the records are deleted from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC15manualDeleteAll6entity9saveEvery7contextyxm_SiSo22NSManagedObjectContextCSgtKAA10DataRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/manualDeleteAll(entity:saveEvery:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC15manualDeleteAll6entity9saveEvery7contextyxm_SiSo22NSManagedObjectContextCSgtKAA10DataRecordRzlF">manualDeleteAll(entity:<wbr>saveEvery:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete all records for an entity (database table).
+If there are many (thousands) of records, this may take a noticeable amount of time, so
+therefore best to perform on a background thread.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error saving the context after the deletion.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="n">manualDeleteAll</span><span class="o">&lt;</span><span class="kt">Record</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DataRecord.html">DataRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">saveEvery</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the entity to be wiped clean</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>saveEvery</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>chunk size for saving during large deletes. Default = 500</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional managed context to use. Default = nil.
+If nil a short-lived <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a></code> will be created.
+Either way <code>saveChangesAndWait()</code> will be called on the context.
+Typically you would just pass <code>nil</code> unless you specifically need to control which
+context the records are deleted from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC6delete6entity9predicate9saveEvery7contextyxm_So11NSPredicateCSgSiSo22NSManagedObjectContextCSgtKAA10DataRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/delete(entity:predicate:saveEvery:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC6delete6entity9predicate9saveEvery7contextyxm_So11NSPredicateCSgSiSo22NSManagedObjectContextCSgtKAA10DataRecordRzlF">delete(entity:<wbr>predicate:<wbr>saveEvery:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete records matching the specified predicate.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error saving the context after the deletion.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="n">delete</span><span class="o">&lt;</span><span class="kt">Record</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DataRecord.html">DataRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">predicate</span><span class="p">:</span> <span class="kt">NSPredicate</span><span class="p">?,</span>
+    <span class="nv">saveEvery</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the entity to delete from</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>predicate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the predicate used to filter the records. <code>nil</code> means delete all records.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>saveEvery</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>chunk size for saving during large deletes. Default = 500</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional managed context to use. Default = nil.
+If nil a short-lived <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a></code> will be created.
+Either way <code>saveChangesAndWait()</code> will be called on the context.
+Typically you would just pass <code>nil</code> unless you specifically need to control which
+context the records are deleted from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC15manualDeleteAll10entityName9saveEvery7contextySS_SiSo22NSManagedObjectContextCSgtKF"></a>
+                    <a name="//apple_ref/swift/Method/manualDeleteAll(entityName:saveEvery:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC15manualDeleteAll10entityName9saveEvery7contextySS_SiSo22NSManagedObjectContextCSgtKF">manualDeleteAll(entityName:<wbr>saveEvery:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete all records for an entity (database table).
+If there are many (thousands) of records, this may take a noticeable amount of time, so
+therefore best to perform on a background thread.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error saving the context after the deletion.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">open</span> <span class="kd">func</span> <span class="nf">manualDeleteAll</span><span class="p">(</span>
+    <span class="nv">entityName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">saveEvery</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entityName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the name of entity to be wiped clean.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>saveEvery</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>chunk size for saving during large deletes. Default = 500</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional managed context to use. Default = nil.
+If nil a short-lived <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a></code> will be created.
+Either way <code>saveChangesAndWait()</code> will be called on the context.
+Typically you would just pass <code>nil</code> unless you specifically need to control which
+context the records are deleted from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC14batchDeleteAll10entityName7contextySS_So22NSManagedObjectContextCSgtKF"></a>
+                    <a name="//apple_ref/swift/Method/batchDeleteAll(entityName:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC14batchDeleteAll10entityName7contextySS_So22NSManagedObjectContextCSgtKF">batchDeleteAll(entityName:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete entity from Core Data using batch delete.
+Warning: see all the caveats about NSBatchDeleteRequest in the Apple documentation:
+<a href="https://developer.apple.com/documentation/coredata/nsbatchdeleterequest">https://developer.apple.com/documentation/coredata/nsbatchdeleterequest</a>
+This will not respect rules or relations. Cascade delete of dependent entities will not occur.
+This only works on Core Data stores backed by SQLite (the default).</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the batch delete request or the subsequent save.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">open</span> <span class="kd">func</span> <span class="nf">batchDeleteAll</span><span class="p">(</span>
+    <span class="nv">entityName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entityName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the name of entity to be wiped clean.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional managed context to use. Default = nil.
+If nil a short-lived <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a></code> will be created.
+Either way <code>saveChangesAndWait()</code> will be called on the context.
+Typically you would just pass <code>nil</code> unless you specifically need to control which
+context the records are deleted from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC19entityNamesForClearSaySSGyF"></a>
+                    <a name="//apple_ref/swift/Method/entityNamesForClear()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC19entityNamesForClearSaySSGyF">entityNamesForClear()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of all entities to be erased upon <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC5clearyyKF">clear()</a></code>.
+Default = list of all entities in the model, which would erase all entities in the database.
+Override this to customize the list of entities specific to your use-case.
+You may wish to list child entities before parents and you may wish to
+exclude certain entities from being cleared. For example, on user logout
+you should clear all user-specific data, but you may wish to preserve some
+generic information that is not tied to the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">open</span> <span class="kd">func</span> <span class="nf">entityNamesForClear</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of entity names to be cleared.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC5clearyyKF"></a>
+                    <a name="//apple_ref/swift/Method/clear()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC5clearyyKF">clear()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear the datbase model. By default this will fetch a list of entity names via
+<code>entityNamesForClear</code> and then delete all records from each of them using
+<code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC14batchDeleteAll10entityName7contextySS_So22NSManagedObjectContextCSgtKF">batchDeleteAll(entityName:context:)</a></code>.
+Override to customize the clear behavior you desire. You may choose to erase via
+<code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC15manualDeleteAll10entityName9saveEvery7contextySS_SiSo22NSManagedObjectContextCSgtKF">manualDeleteAll(entityName:saveEvery:context:)</a></code>.
+If you really wish to completely erase all data and start over, consider using <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC7destroy10completionyySbc_tKF">destroy(completion:)</a></code> instead.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the delete or subsequent save.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">open</span> <span class="kd">func</span> <span class="nf">clear</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC6delete6entity3uidyxm_7UidTypeQztKAA10DataRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/delete(entity:uid:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC6delete6entity3uidyxm_7UidTypeQztKAA10DataRecordRzlF">delete(entity:<wbr>uid:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete records with the matching unique identifier</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error saving the context after the deletion.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">delete</span><span class="o">&lt;</span><span class="kt">Record</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">uid</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="kt">UidType</span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">Record</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DataRecord.html">DataRecord</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the entity to delete from</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uid</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the unique identifier of the object(s) to delete</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC6delete6entity4uidsyxm_Say7UidTypeQzGtKAA10DataRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/delete(entity:uids:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC6delete6entity4uidsyxm_Say7UidTypeQzGtKAA10DataRecordRzlF">delete(entity:<wbr>uids:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete records with the matching unique identifiers</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error saving the context after the deletion.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">delete</span><span class="o">&lt;</span><span class="kt">Record</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">uids</span><span class="p">:</span> <span class="p">[</span><span class="kt">Record</span><span class="o">.</span><span class="kt">UidType</span><span class="p">])</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">Record</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DataRecord.html">DataRecord</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the entity to delete from</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uid</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the unique identifiers of the objects to delete</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC11deleteModel6entity5modelyxm_0E4TypeQztKAA0E13RepresentableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/deleteModel(entity:model:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC11deleteModel6entity5modelyxm_0E4TypeQztKAA0E13RepresentableRzlF">deleteModel(entity:<wbr>model:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete the specified model.
+Note: deletes all records having the same uid as the model.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error saving the context after the deletion.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">deleteModel</span><span class="o">&lt;</span><span class="kt">Record</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">model</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="kt">ModelType</span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">Record</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ModelRepresentable.html">ModelRepresentable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the entity to delete from</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>model</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the business model object to delete</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC12deleteModels6entity6modelsyxm_Say9ModelTypeQzGtKAA0H13RepresentableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/deleteModels(entity:models:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC12deleteModels6entity6modelsyxm_Say9ModelTypeQzGtKAA0H13RepresentableRzlF">deleteModels(entity:<wbr>models:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete the specified models.
+Note: deletes all records having the same uids as the models.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error saving the context after the deletion.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">deleteModels</span><span class="o">&lt;</span><span class="kt">Record</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">models</span><span class="p">:</span> <span class="p">[</span><span class="kt">Record</span><span class="o">.</span><span class="kt">ModelType</span><span class="p">])</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">Record</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ModelRepresentable.html">ModelRepresentable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the entity to delete from</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>models</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the business model objects to delete</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC12fetchRecords9predicate15sortDescriptorsSayxGSo11NSPredicateCSg_SaySo16NSSortDescriptorCGSgtKAA10DataRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/fetchRecords(predicate:sortDescriptors:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC12fetchRecords9predicate15sortDescriptorsSayxGSo11NSPredicateCSg_SaySo16NSSortDescriptorCGSgtKAA10DataRecordRzlF">fetchRecords(predicate:<wbr>sortDescriptors:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches managed object records from Core Data.</p>
+
+<p>May be safely called from any thread, but the managed objects returned
+may only be safely accessed from the current thread.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">fetchRecords</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DataRecord.html">DataRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">predicate</span><span class="p">:</span> <span class="kt">NSPredicate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">sortDescriptors</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSSortDescriptor</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>predicate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional predicate to filter records</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sortDescriptors</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional sort to apply to fetched records</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of managed object records matching the (optional) predicate and optionally sorted</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC11fetchModels6entity4uidsSay9ModelTypeQzGxm_Say03UidI0QzGSgtKAA08RecordToH0RzlF"></a>
+                    <a name="//apple_ref/swift/Method/fetchModels(entity:uids:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC11fetchModels6entity4uidsSay9ModelTypeQzGxm_Say03UidI0QzGSgtKAA08RecordToH0RzlF">fetchModels(entity:<wbr>uids:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches records from Core Data and convert those to models.</p>
+
+<p>May be safely called from any thread, and the models returned may be safely transferred to any thread.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">fetchModels</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RecordToModel.html">RecordToModel</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">uids</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="o">.</span><span class="kt">UidType</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="o">.</span><span class="kt">ModelType</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Core Data entity to be fetched</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an array of uids to filter by. <code>nil</code> means to return all records. Default = nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an unsorted array of model objects matching the uids</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC10fetchModel6entity3uid0E4TypeQzSgxm_03UidH0QztKAA08RecordToE0RzlF"></a>
+                    <a name="//apple_ref/swift/Method/fetchModel(entity:uid:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC10fetchModel6entity3uid0E4TypeQzSgxm_03UidH0QztKAA08RecordToE0RzlF">fetchModel(entity:<wbr>uid:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a single matching record from Core Data and convert it to a model object.</p>
+
+<p>May be safely called from any thread, and the model returned may be safely transferred to any thread.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">fetchModel</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RecordToModel.html">RecordToModel</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">uid</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="kt">UidType</span>
+<span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="o">.</span><span class="kt">ModelType</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the type of entity we want to fetch the records</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uid</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the unique identifier of the record to filter for</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the matching model object if found, otherwise <code>nil</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC4save6entity6models15shouldOverwrite7contextyxm_Say9ModelTypeQzGSbSo22NSManagedObjectContextCSgtKSo0lM0CRbzAA010RecordFromJ0RzlF"></a>
+                    <a name="//apple_ref/swift/Method/save(entity:models:shouldOverwrite:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC4save6entity6models15shouldOverwrite7contextyxm_Say9ModelTypeQzGSbSo22NSManagedObjectContextCSgtKSo0lM0CRbzAA010RecordFromJ0RzlF">save(entity:<wbr>models:<wbr>shouldOverwrite:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Converts an array of models to Core Data records and synchronously saves them.
+Typical use case for this method would be to save the results of a network request, and
+in that case should be called from a non-blocking thread.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">save</span><span class="o">&lt;</span><span class="kt">Record</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">Record</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">models</span><span class="p">:</span> <span class="p">[</span><span class="kt">Record</span><span class="o">.</span><span class="kt">ModelType</span><span class="p">],</span>
+    <span class="nv">shouldOverwrite</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">Record</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RecordFromModel.html">RecordFromModel</a></span><span class="p">,</span> <span class="kt">Record</span><span class="p">:</span> <span class="kt">NSManagedObject</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Core Data entity to save to</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>models</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of models that will be converted into Core Data records and saved.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>shouldOverwrite</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code> all existing records for this entity will be deleted
+and new records matching <code>models</code> will be inserted.
+Use <code>true</code> for example on pull-to-refresh, when fetching the 1st page of results,
+or whenever you need to account for remote deletes.
+If <code>false</code> no local records will be deleted, any existing matching records will be updated,
+any local duplicates will be removed, and new records will be inserted.
+Use <code>false</code> when fetching additional subsequent pages of results, or
+whenever <code>models</code> is a subset of the total data.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional managed context to use. Default = nil.
+If nil a short-lived <code><a href="../Classes/PersistenceManager.html#/s:12YPersistence18PersistenceManagerC13workerContextSo015NSManagedObjectE0Cvp">workerContext</a></code> will be created.
+Either way <code>saveChangesAndWait()</code> will be called on the context.
+Typically you would just pass <code>nil</code> unless you specifically need to control which
+context the records are inserted into.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC20fetchRecordsToUpload7contextSayxGSo22NSManagedObjectContextCSg_tKAA10SyncRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/fetchRecordsToUpload(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC20fetchRecordsToUpload7contextSayxGSo22NSManagedObjectContextCSg_tKAA10SyncRecordRzlF">fetchRecordsToUpload(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches records that are awaiting upload.</p>
+
+<p>May be safely called from any thread, but the managed objects returned
+may only be safely accessed from the current thread.
+If no context is provided, a worker context will be created.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">fetchRecordsToUpload</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SyncRecord.html">SyncRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional managed context to use. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of managed object records not uploaded</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC20fetchRecordsToUpdate7contextSayxGSo22NSManagedObjectContextCSg_tKAA10SyncRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/fetchRecordsToUpdate(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC20fetchRecordsToUpdate7contextSayxGSo22NSManagedObjectContextCSg_tKAA10SyncRecordRzlF">fetchRecordsToUpdate(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches records that have been updated (but not deleted) since the last sync.</p>
+
+<p>May be safely called from any thread, but the managed objects returned
+may only be safely accessed from the current thread.
+If no context is provided, a worker context will be created.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">fetchRecordsToUpdate</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SyncRecord.html">SyncRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional managed context to use. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of managed object records to update</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC20fetchRecordsToDelete7contextSayxGSo22NSManagedObjectContextCSg_tKAA10SyncRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/fetchRecordsToDelete(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC20fetchRecordsToDelete7contextSayxGSo22NSManagedObjectContextCSg_tKAA10SyncRecordRzlF">fetchRecordsToDelete(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches records that have been marked for deletion since the last sync.</p>
+
+<p>May be safely called from any thread, but the managed objects returned
+may only be safely accessed from the current thread.
+If no context is provided, a worker context will be created.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">fetchRecordsToDelete</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SyncRecord.html">SyncRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional managed context to use. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an array of managed object records to delete.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC21markRecordsAsUploaded6entity4uids7contextyxm_Say7UidTypeQzGSo22NSManagedObjectContextCSgtKAA10SyncRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/markRecordsAsUploaded(entity:uids:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC21markRecordsAsUploaded6entity4uids7contextyxm_Say7UidTypeQzGSo22NSManagedObjectContextCSgtKAA10SyncRecordRzlF">markRecordsAsUploaded(entity:<wbr>uids:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mark records as uploaded. Do this after they have been been successfully uploaded to remote.</p>
+
+<p>May be safely called from any thread.
+If no context is provided, a worker context will be created.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch or save request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">markRecordsAsUploaded</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SyncRecord.html">SyncRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">uids</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="o">.</span><span class="kt">UidType</span><span class="p">],</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Core Data entity to be fetched</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of uids to update</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional managed context to use. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC20markRecordsAsDeleted6entity4uids7contextyxm_Say7UidTypeQzGSo22NSManagedObjectContextCSgtKAA10SyncRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/markRecordsAsDeleted(entity:uids:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC20markRecordsAsDeleted6entity4uids7contextyxm_Say7UidTypeQzGSo22NSManagedObjectContextCSgtKAA10SyncRecordRzlF">markRecordsAsDeleted(entity:<wbr>uids:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mark selected records as being deleted locally.
+Any local fetches should exclude records where <code>wasDeleted == true</code>.
+Once these records have been deleted from remote, you can safely delete them locally.</p>
+
+<p>May be safely called from any thread.
+If no context is provided, a worker context will be created.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch or save request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">markRecordsAsDeleted</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SyncRecord.html">SyncRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">uids</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="o">.</span><span class="kt">UidType</span><span class="p">],</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Core Data entity to be fetched</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uids</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of uids to update</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional managed context to use. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12YPersistence18PersistenceManagerC23markAllRecordsAsDeleted6entity7contextyxm_So22NSManagedObjectContextCSgtKAA10SyncRecordRzlF"></a>
+                    <a name="//apple_ref/swift/Method/markAllRecordsAsDeleted(entity:context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12YPersistence18PersistenceManagerC23markAllRecordsAsDeleted6entity7contextyxm_So22NSManagedObjectContextCSgtKAA10SyncRecordRzlF">markAllRecordsAsDeleted(entity:<wbr>context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mark all records as being deleted locally. Any local fetches should exclude records where <code>wasDeleted == true</code>.
+Once these records have been deleted from remote, you can safely delete them locally.</p>
+
+<p>May be safely called from any thread.
+If no context is provided, a worker context will be created.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    any error executing the fetch or save request
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">markAllRecordsAsDeleted</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SyncRecord.html">SyncRecord</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">entity</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span>
+    <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Core Data entity to be fetched</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional managed context to use. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2023 <a class="link" href="https://yml.co" target="_blank" rel="external noopener">Y Media Labs</a>. All rights reserved. (Last updated: 2023-04-25)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>
